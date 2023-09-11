@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { useTitle } from 'react-use';
-import { Box, Divider, Typography } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 
 import { AppView, Logo } from '../../components';
 
@@ -19,16 +19,14 @@ export const PrivacyPolicyContainer: FC<PrivacyPolicyContainerProps> = ({ title,
         <Logo />
       </Box>
 
-      <Divider />
-
-      <Box overflow={'auto'} pb={5} px={3}>
+      <Box flex={1} overflow={'auto'} px={3}>
         <Box mt={5}>
           <Typography variant={'h3'} align={'center'}>
             <strong>{title} Privacy Policy</strong>
           </Typography>
         </Box>
 
-        <Box mt={5} mx={'auto'} display={'flex'} flexDirection={'column'} gridGap={16} maxWidth={800}>
+        <Box my={5} mx={'auto'} display={'flex'} flexDirection={'column'} gridGap={16} maxWidth={800}>
           <Typography>
             Yashin Pavlo built the {title} app as a Freemium app. This SERVICE is provided by Yashin Pavlo at no cost
             and is intended for use as is.
