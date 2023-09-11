@@ -5,8 +5,8 @@
   "description": "Website for apps",
   "homepage": ".",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build"
+    "dev": "react-scripts start",
+    "start": "react-scripts build && node build/index.html"
   },
   "engines": {
     "node": "16.x"
