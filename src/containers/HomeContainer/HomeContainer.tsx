@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { useTitle } from 'react-use';
-import { Box, Button, Divider, Grid, Paper, Typography } from '@material-ui/core';
+import { Box, Button, Divider, Grid, Hidden, Paper, Typography } from '@material-ui/core';
 import { LogoVariant } from '../../enums';
 import { AppView, Link, Logo } from '../../components';
 import {
@@ -63,8 +63,10 @@ export const HomeContainer: FC<HomeContainerProps> = ({ pageTitle }) => {
           {apps.map(({ id, name, description, logo, privacyPolicyRoute }) => (
             <Grid md={6} item key={id}>
               <Paper elevation={3}>
-                <Box display={'grid'} gridTemplateColumns={'130px minmax(200px, 1fr)'} gridGap={24} pt={2} px={2}>
-                  <img alt={name} src={logo} title={name} />
+                <Box display={'flex'} alignItems={'start'} gridGap={24} pt={2} px={2}>
+                  <Hidden only={'xs'}>
+                    <img alt={name} src={logo} title={name} width={130} />
+                  </Hidden>
 
                   <Box>
                     <Typography gutterBottom variant="h5">
@@ -86,7 +88,7 @@ export const HomeContainer: FC<HomeContainerProps> = ({ pageTitle }) => {
           ))}
         </Grid>
 
-        <Divider variant={'middle'} component={Box} width={600} mx={'auto !important'} my={'60px !important'} />
+        <Divider variant={'middle'} component={Box} maxWidth={600} mx={'auto !important'} my={'60px !important'} />
 
         <Box mt={5} display={'flex'} alignItems={'center'} gridGap={24} justifyContent={'center'}>
           <Typography variant={'h4'}>Email us:</Typography>

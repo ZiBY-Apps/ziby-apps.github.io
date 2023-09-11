@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const AppCssBaseline = createGlobalStyle`
   html, body, #root {
@@ -6,7 +6,7 @@ export const AppCssBaseline = createGlobalStyle`
   }
 
   html {
-    //min-width: 1500px;
+    min-width: 360px;
     overflow-y: hidden;
   }
 
