@@ -1,0 +1,27 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+.config
+
+# testing
+coverage
+allure-results
+
+# production
+storybook-static
+build
+dist
+lib
+
+# misc
+.DS_Store
+.idea
+.sublime-project
+.vscode
+
+*.log*
+
+# cypress
+screenshots
+videos
