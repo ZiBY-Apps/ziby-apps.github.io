@@ -1,1 +1,1 @@
-worker: node build/index.html
+web: yarn build && node server.js
