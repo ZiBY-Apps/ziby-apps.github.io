@@ -22,7 +22,7 @@ export const HomeContainer: FC<HomeContainerProps> = ({ pageTitle }) => {
 
       <Box pt={5} pb={10} px={3} maxWidth={1200} mx={'auto'}>
         <Grid container spacing={3}>
-          {apps.map(({ id, name, description, logo }) => (
+          {apps.map(({ id, appleId, googleId, name, description, logo }) => (
             <Grid md={6} item key={id}>
               <Paper elevation={3}>
                 <Box display={'flex'} alignItems={'start'} gridGap={24} pt={2} px={2}>
@@ -43,12 +43,16 @@ export const HomeContainer: FC<HomeContainerProps> = ({ pageTitle }) => {
                   </Box>
                 </Box>
 
-                <Box mt={3} px={2} pb={2} display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
-                  <a href={`https://apps.apple.com/us/app/id${id}`} target={'_blank'} rel="noreferrer">
+                <Box mt={3} px={2} pb={2} display={'flex'} alignItems={'center'} gridGap={16}>
+                  {appleId && <a href={`https://apps.apple.com/us/app/id${appleId}`} target={'_blank'} rel="noreferrer">
                     <img src={'/app-store.png'} alt={'Download from App Store'} width={130} />
-                  </a>
+                  </a>}
 
-                  <Link route={privacyPolicyRoute} query={{ appId: id }}>
+                  {googleId && <a href={`https://play.google.com/store/apps/details?id=${googleId}`} target={'_blank'} rel="noreferrer">
+                    <img src={'/google-play-store.png'} alt={'Download from Google Play Store'} width={130} />
+                  </a>}
+
+                  <Link route={privacyPolicyRoute} query={{ appId: id }} style={{ marginLeft: "auto" }}>
                     [ Privacy Policy ]
                   </Link>
                 </Box>
