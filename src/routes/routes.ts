@@ -9,3 +9,8 @@ export const privacyPolicyRoute = createRoute('/privacy-policy', {
   title: 'Privacy Policy',
   pageTitle: 'Privacy Policy',
 });
+
+export const authCallbackRoute = createRoute('/auth/callback', {
+  title: 'Auth Callback',
+  pageTitle: 'Auth Callback',
+});
