@@ -25,7 +25,7 @@ export const AuthCallbackContainer: FC<AuthCallbackContainerProps> = ({ pageTitl
       <Card variant={'elevation'}>
         <CardContent>
           <Box component={'code'} style={{ wordWrap: 'break-word' }}>
-            ${code}
+            {code}
           </Box>
         </CardContent>
         <CardActions>
