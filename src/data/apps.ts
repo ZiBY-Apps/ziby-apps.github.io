@@ -10,6 +10,16 @@ export interface AppData {
 
 export const apps: AppData[] = [
     {
+        id: 'AlphabetOfTime',
+        appleId: '6755596771',
+        googleId: 'ua.zibyapp.alphabet_of_time',
+        name: 'Alphabet of Time',
+        description:
+            'The best way for kids to learn the clock, seasons, and time! Fun, interactive, and educational. Download now!',
+        logo: '/logos/alphabet-of-time.png',
+        withAdmob: true,
+    },
+    {
         id: 'LearningTogether',
         appleId: '6455684710',
         googleId: 'ua.zibyapp.baby_learn',
