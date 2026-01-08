@@ -9,7 +9,7 @@ interface AppCardProps {
 }
 
 const AppCard: React.FC<AppCardProps> = ({ app }) => {
-    const { name, subtitle, description, logo, appleId, googleId, id, forChild } = app;
+    const { name, subtitle, description, logo, appleId, googleId, id, forChild, comingSoon } = app;
     const [isFlipped, setIsFlipped] = useState(false);
 
     // Helper to resolve paths with correct base URL (for GitHub Pages)
@@ -35,8 +35,8 @@ const AppCard: React.FC<AppCardProps> = ({ app }) => {
             <div className="app-card-inner">
                 {/* Front Side */}
                 <div className="app-card-front">
-                    <div className="app-card-badge">
-                        {forChild ? 'KIDS' : 'UTILITY'}
+                    <div className="app-card-badge" style={comingSoon ? { background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)' } : {}}>
+                        {comingSoon ? 'COMING SOON' : (forChild ? 'KIDS' : 'UTILITY')}
                     </div>
                     <div className="app-logo-wrapper">
                         <img src={getImagePath(logo)} alt={`${name} logo`} className="app-logo" />
@@ -50,32 +50,40 @@ const AppCard: React.FC<AppCardProps> = ({ app }) => {
                     </div>
 
                     <div className="app-footer">
-                        <div className="store-links">
-                            {appleId && (
-                                <a
-                                    href={`https://apps.apple.com/app/id${appleId}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Download on the App Store"
-                                >
-                                    <img src={getImagePath("/app-store.png")} alt="Download on the App Store" className="store-badge" />
-                                </a>
-                            )}
-                            {googleId && (
-                                <a
-                                    href={`https://play.google.com/store/apps/details?id=${googleId}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Get it on Google Play"
-                                >
-                                    <img src={getImagePath("/google-play-store.png")} alt="Get it on Google Play" className="store-badge" />
-                                </a>
-                            )}
-                        </div>
+                        {!comingSoon ? (
+                            <>
+                                <div className="store-links">
+                                    {appleId && (
+                                        <a
+                                            href={`https://apps.apple.com/app/id${appleId}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label="Download on the App Store"
+                                        >
+                                            <img src={getImagePath("/app-store.png")} alt="Download on the App Store" className="store-badge" />
+                                        </a>
+                                    )}
+                                    {googleId && (
+                                        <a
+                                            href={`https://play.google.com/store/apps/details?id=${googleId}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label="Get it on Google Play"
+                                        >
+                                            <img src={getImagePath("/google-play-store.png")} alt="Get it on Google Play" className="store-badge" />
+                                        </a>
+                                    )}
+                                </div>
 
-                        <button className="qr-button" onClick={handleFlip}>
-                            <span>View QR Code</span>
-                        </button>
+                                <button className="qr-button" onClick={handleFlip}>
+                                    <span>View QR Code</span>
+                                </button>
+                            </>
+                        ) : (
+                            <div className="coming-soon-placeholder">
+                                <p>Available soon in App Store & Google Play</p>
+                            </div>
+                        )}
 
                         <Link to={`/privacy-policy?appId=${id}`} className="privacy-mini-link">
                             Privacy Policy
@@ -121,6 +129,7 @@ const AppCard: React.FC<AppCardProps> = ({ app }) => {
         </div>
     );
 };
+
 
 export default AppCard;
 

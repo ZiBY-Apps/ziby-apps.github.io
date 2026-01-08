@@ -10,6 +10,7 @@ export interface AppData {
     withAdmob: boolean;
     withAnalytics: boolean;
     withCrashlytics: boolean;
+    comingSoon?: boolean;
 }
 
 export const apps: AppData[] = [
@@ -26,6 +27,7 @@ export const apps: AppData[] = [
         withAdmob: true,
         withAnalytics: true,
         withCrashlytics: true,
+        comingSoon: true,
     },
     {
         id: 'LearningTogether',
