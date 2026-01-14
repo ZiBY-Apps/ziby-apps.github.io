@@ -15,6 +15,20 @@ export interface AppData {
 
 export const apps: AppData[] = [
     {
+        id: 'LearningTogether',
+        appleId: '6455684710',
+        googleId: 'ua.zibyapp.baby_learn',
+        logo: '/logos/learning-together.png',
+        name: 'BabyLearn',
+        subtitle: 'Flashcards for Kids',
+        description:
+            "Boost your toddler's learning with BabyLearn! Learn colors, letters, and numbers. Unique feature: create your own categories with photos of family and familiar objects.",
+        forChild: true,
+        withAdmob: true,
+        withAnalytics: true,
+        withCrashlytics: true,
+    },
+    {
         id: 'AlphabetOfTime',
         appleId: '6755596771',
         googleId: 'ua.zibyapp.alphabet_of_time',
@@ -28,20 +42,6 @@ export const apps: AppData[] = [
         withAnalytics: true,
         withCrashlytics: true,
         comingSoon: true,
-    },
-    {
-        id: 'LearningTogether',
-        appleId: '6455684710',
-        googleId: 'ua.zibyapp.baby_learn',
-        logo: '/logos/learning-together.png',
-        name: 'BabyLearn',
-        subtitle: 'Flashcards for Kids',
-        description:
-            "Boost your toddler's learning with BabyLearn! Learn colors, letters, and numbers. Unique feature: create your own categories with photos of family and familiar objects.",
-        forChild: true,
-        withAdmob: true,
-        withAnalytics: true,
-        withCrashlytics: true,
     },
     {
         id: 'DeckKeeper',
