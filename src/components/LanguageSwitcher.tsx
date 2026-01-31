@@ -36,16 +36,31 @@ const LanguageSwitcher: React.FC = () => {
     navigate(`/${pathSegments.join('/')}${location.search}${location.hash}`);
   };
 
+  const selectedLanguage = languages.find(l => l.code === currentLang);
+
   return (
-    <div className="language-dropdown-wrapper">
-      <select value={currentLang} onChange={handleLanguageChange} className="language-select">
+    <div className="relative inline-flex items-center">
+      {/* Візуальне представлення */}
+      <div className="flex items-center bg-white/5 border border-card-border text-text-primary px-4 pr-10 py-2 rounded-lg text-sm font-medium transition-all pointer-events-none group-hover:bg-white/10 group-focus-within:border-accent group-focus-within:ring-2 group-focus-within:ring-accent-glow">
+        <span className="md:hidden uppercase">{currentLang}</span>
+        <span className="hidden md:inline">{selectedLanguage?.label}</span>
+      </div>
+
+      {/* Справжній селект, який відкриває нативний список */}
+      <select
+        value={currentLang}
+        onChange={handleLanguageChange}
+        className="absolute inset-0 opacity-0 cursor-pointer appearance-none w-full h-full"
+      >
         {languages.map(lang => (
-          <option key={lang.code} value={lang.code}>
+          <option key={lang.code} value={lang.code} className="bg-bg-main text-text-primary p-2">
             {lang.label}
           </option>
         ))}
       </select>
-      <div className="select-arrow"></div>
+
+      {/* Стрілочка */}
+      <div className="absolute right-4 top-1/2 -translate-y-1/2 w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-text-secondary pointer-events-none"></div>
     </div>
   );
 };

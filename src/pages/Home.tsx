@@ -25,7 +25,7 @@ const Home: React.FC = () => {
   }, [lang, i18n, navigate]);
 
   return (
-    <div className="home-page">
+    <div className="min-h-screen">
       <Helmet htmlAttributes={{ lang: lang || i18n.language.split('-')[0] }}>
         <title>
           {t('ZiBY Apps')} - {t('Showcase of Awesome Apps').replace('<br />', '')}
@@ -55,17 +55,18 @@ const Home: React.FC = () => {
 
         <link rel="canonical" href={`https://ziby-apps.github.io/#/${lang || 'en'}`} />
       </Helmet>
-      <header className="main-header fade-in">
+
+      <header className="main-header animate-fade-in">
         <div className="header-content">
-          <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <img src="/favicon.png" alt="ZiBY Apps icon" />
-            <img src="/logo.png" alt="ZiBY Apps Logo" className="hide-on-mobile" />
+          <div className="flex items-center gap-4">
+            <img src="/favicon.png" alt="ZiBY Apps icon" className="md:hidden max-h-[40px]" />
+            <img src="/logo.png" alt="ZiBY Apps Logo" className="hidden md:block max-h-[54px]" />
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+          <div className="flex items-center gap-8">
             <LanguageSwitcher />
             <a
               href="mailto:yashin.ziby@icloud.com"
-              style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: 600 }}
+              className="text-text-secondary text-[0.9rem] font-semibold hover:text-accent transition-colors"
             >
               {t('Contact')}
             </a>
@@ -73,16 +74,14 @@ const Home: React.FC = () => {
         </div>
       </header>
 
-      <div className="container">
+      <div className="max-w-[1200px] mx-auto px-8">
         <main>
-          <div className="hero fade-in" style={{ marginBottom: '4rem', textAlign: 'center' }}>
+          <div className="hero animate-fade-in mb-16 text-center">
             <h1
-              style={{ fontSize: '3.5rem', marginBottom: '1rem' }}
+              className="text-5xl md:text-[3.5rem] mb-4 leading-tight"
               dangerouslySetInnerHTML={{ __html: t('Showcase of Awesome Apps') }}
             ></h1>
-            <p style={{ maxWidth: '600px', margin: '0 auto', color: 'var(--text-secondary)', fontSize: '1.2rem' }}>
-              {t('Hero Description')}
-            </p>
+            <p className="max-w-[600px] mx-auto text-text-secondary text-xl">{t('Hero Description')}</p>
           </div>
 
           <div className="apps-grid">
@@ -92,10 +91,10 @@ const Home: React.FC = () => {
           </div>
         </main>
 
-        <footer className="main-footer fade-in">
-          <p style={{ marginBottom: '1rem' }}>
+        <footer className="main-footer animate-fade-in">
+          <p className="mb-4">
             {t('Contact us')}:{' '}
-            <a href="mailto:yashin.ziby@icloud.com" style={{ color: 'var(--accent-color)' }}>
+            <a href="mailto:yashin.ziby@icloud.com" className="text-accent underline hover:no-underline">
               yashin.ziby@icloud.com
             </a>
           </p>

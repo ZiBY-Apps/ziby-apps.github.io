@@ -42,7 +42,7 @@ const PrivacyPolicy: React.FC = () => {
   }, [app, currentLang]);
 
   return (
-    <div className="privacy-page">
+    <div className="min-h-screen">
       <Helmet htmlAttributes={{ lang: currentLang }}>
         <title>
           {t('Privacy Policy')} - {appName} | {t('ZiBY Apps')}
@@ -66,36 +66,30 @@ const PrivacyPolicy: React.FC = () => {
 
         <link rel="canonical" href={`https://ziby-apps.github.io/#/${currentLang}/privacy-policy?appId=${app?.id}`} />
       </Helmet>
-      <header className="main-header fade-in">
+
+      <header className="main-header animate-fade-in">
         <div className="header-content">
-          <Link
-            to={`/${currentLang}`}
-            className="logo"
-            style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', textDecoration: 'none' }}
-          >
-            <img src="/favicon.png" alt="ZiBY Apps Logo" />
-            <img src="/logo.png" alt="ZiBY Apps Logo" className="hide-on-mobile" />
+          <Link to={`/${currentLang}`} className="flex items-center gap-3 no-underline">
+            <img src="/favicon.png" alt="ZiBY Apps icon" className="md:hidden max-h-[40px]" />
+            <img src="/logo.png" alt="ZiBY Apps Logo" className="hidden md:block max-h-[54px]" />
           </Link>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+          <div className="flex items-center gap-8">
             <LanguageSwitcher />
-            <Link to={`/${currentLang}`} className="btn" style={{ background: 'rgba(255,255,255,0.1)' }}>
+            <Link to={`/${currentLang}`} className="btn px-5 py-2.5 bg-white/10 hover:bg-white/20">
               ← {t('Back to Home')}
             </Link>
           </div>
         </div>
       </header>
 
-      <div className="container">
-        <main className="privacy-content fade-in">
+      <div className="max-w-[1200px] mx-auto px-8">
+        <main className="privacy-content animate-fade-in">
           <h1>{t('Privacy Policy')}</h1>
-          <p style={{ fontSize: '1.2rem', color: 'var(--accent-color)' }}>{appName}</p>
+          <p className="text-xl text-accent mb-8">{appName}</p>
 
           <p>{t('Privacy Policy Intro', { appName })}</p>
-
           <p>{t('Privacy Policy App Provided', { appName })}</p>
-
           <p>{t('Privacy Policy Agreement')}</p>
-
           <p>{t('Privacy Policy Terms Definitions')}</p>
 
           <h2>{t('Information Collection and Use')}</h2>
@@ -105,21 +99,15 @@ const PrivacyPolicy: React.FC = () => {
           {(app?.withAdmob || app?.withAnalytics || app?.withCrashlytics) && (
             <>
               <p>{t('Service Privacy Links')}</p>
-              <div
-                style={{
-                  marginBottom: '1.5rem',
-                  background: 'rgba(56, 189, 248, 0.1)',
-                  padding: '1rem',
-                  borderRadius: '8px',
-                }}
-              >
-                <ul>
+              <div className="mb-6 bg-accent/10 p-6 rounded-xl">
+                <ul className="list-disc pl-5 space-y-2">
                   {app?.withAdmob && (
                     <li>
                       <a
                         href="https://support.google.com/admob/answer/6128543?hl=en"
                         target="_blank"
                         rel="noopener noreferrer"
+                        className="underline hover:no-underline"
                       >
                         AdMob
                       </a>
@@ -127,14 +115,24 @@ const PrivacyPolicy: React.FC = () => {
                   )}
                   {app?.withAnalytics && (
                     <li>
-                      <a href="https://www.google.com/analytics/terms/" target="_blank" rel="noopener noreferrer">
+                      <a
+                        href="https://www.google.com/analytics/terms/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline hover:no-underline"
+                      >
                         Google Analytics
                       </a>
                     </li>
                   )}
                   {app?.withCrashlytics && (
                     <li>
-                      <a href="https://firebase.google.com/terms/crashlytics" target="_blank" rel="noopener noreferrer">
+                      <a
+                        href="https://firebase.google.com/terms/crashlytics"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline hover:no-underline"
+                      >
                         Firebase Crashlytics
                       </a>
                     </li>
@@ -153,7 +151,7 @@ const PrivacyPolicy: React.FC = () => {
 
           <h2>{t('Service Providers')}</h2>
           <p>{t('Service Providers Desc 1')}</p>
-          <ul>
+          <ul className="list-disc pl-5 space-y-2 mb-4">
             <li>{t('Service Providers List 1')}</li>
             <li>{t('Service Providers List 2')}</li>
             <li>{t('Service Providers List 3')}</li>
@@ -176,9 +174,9 @@ const PrivacyPolicy: React.FC = () => {
           <h2>{t('Changes to This Privacy Policy')}</h2>
           <p>{t('Changes Desc')}</p>
 
-          <p style={{ fontStyle: 'italic', marginTop: '2rem', opacity: 0.7 }}>{t('Effect Date')}</p>
+          <p className="italic mt-8 opacity-70">{t('Effect Date')}</p>
 
-          <div style={{ marginTop: '3rem', borderTop: '1px solid var(--card-border)', paddingTop: '2rem' }}>
+          <div className="mt-12 border-t border-card-border pt-8">
             <h2>{t('Contact Us')}</h2>
             <p>{t('Contact Us Desc')}</p>
           </div>
