@@ -73,7 +73,8 @@ const PrivacyPolicy: React.FC = () => {
             className="logo"
             style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', textDecoration: 'none' }}
           >
-            <img src="/logo.png" alt="ZiBY Apps Logo" style={{ height: '54px' }} />
+            <img src="/favicon.png" alt="ZiBY Apps Logo" />
+            <img src="/logo.png" alt="ZiBY Apps Logo" className="hide-on-mobile" />
           </Link>
           <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
             <LanguageSwitcher />

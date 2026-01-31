@@ -2,7 +2,7 @@ import { AppData } from './types';
 
 export const alphabetOfTime: AppData = {
   id: 'AlphabetOfTime',
-  // appleId: '6755596771', // TODO добавить когда опубликуют приложение
+  appleId: '6755596771',
   googleId: 'ua.zibyapp.alphabet_of_time',
   logo: '/logos/alphabet-of-time.png',
   name: 'Alphabet of Time',

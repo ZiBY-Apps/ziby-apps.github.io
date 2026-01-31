@@ -58,7 +58,8 @@ const Home: React.FC = () => {
       <header className="main-header fade-in">
         <div className="header-content">
           <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <img src="/logo.png" alt="ZiBY Apps Logo" style={{ height: '54px' }} />
+            <img src="/favicon.png" alt="ZiBY Apps icon" />
+            <img src="/logo.png" alt="ZiBY Apps Logo" className="hide-on-mobile" />
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
             <LanguageSwitcher />

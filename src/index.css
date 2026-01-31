@@ -26,6 +26,7 @@ body {
     radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.08), transparent 25%),
     radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08), transparent 25%);
   min-height: 100vh;
+  min-width: 320px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -79,6 +80,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
 }
 
 .logo {
@@ -87,6 +89,11 @@ a:hover {
   color: var(--text-primary);
   -webkit-text-fill-color: var(--text-primary);
   /* Override gradient for simple logo text if needed */
+
+  img {
+    max-height: 54px;
+    max-width: 100%;
+  }
 }
 
 /* App Grid */
@@ -232,4 +239,11 @@ a:hover {
   background-color: var(--bg-color);
   color: var(--text-primary);
   padding: 10px;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
 }
