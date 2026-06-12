@@ -12,7 +12,7 @@ const Home: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const supportedLangs = ['en', 'uk', 'de', 'ru', 'es', 'fr', 'it', 'pl'];
+    const supportedLangs = ['en', 'uk', 'de', 'es', 'fr', 'it', 'pl'];
     if (lang && supportedLangs.includes(lang)) {
       if (i18n.language !== lang) {
         i18n.changeLanguage(lang);
@@ -99,7 +99,7 @@ const Home: React.FC = () => {
             </a>
           </p>
           <p>
-            &copy; {new Date().getFullYear()} Yashin Pavlo. {t('All rights reserved')}
+            &copy; {new Date().getFullYear()} {t('Author')}. {t('All rights reserved')}
           </p>
         </footer>
       </div>

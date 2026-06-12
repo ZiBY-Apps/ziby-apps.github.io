@@ -12,7 +12,6 @@ const LanguageSwitcher: React.FC = () => {
     { code: 'en', label: 'English' },
     { code: 'de', label: 'Deutsch' },
     { code: 'uk', label: 'Українська' },
-    { code: 'ru', label: 'Русский' },
     { code: 'es', label: 'Español' },
     { code: 'fr', label: 'Français' },
     { code: 'it', label: 'Italiano' },

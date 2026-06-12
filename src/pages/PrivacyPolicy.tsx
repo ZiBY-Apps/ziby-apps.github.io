@@ -1,9 +1,9 @@
-import React, { useMemo, useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useSearchParams, Link, useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { apps } from '../data/apps';
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import LanguageSwitcher from '../components/LanguageSwitcher';
+import { apps } from '../data/apps';
 
 const PrivacyPolicy: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -21,7 +21,7 @@ const PrivacyPolicy: React.FC = () => {
       return;
     }
 
-    const supportedLangs = ['en', 'uk', 'de', 'ru', 'es', 'fr', 'it', 'pl'];
+    const supportedLangs = ['en', 'uk', 'de', 'es', 'fr', 'it', 'pl'];
     if (lang && supportedLangs.includes(lang)) {
       if (i18n.language !== lang) {
         i18n.changeLanguage(lang);
@@ -184,7 +184,7 @@ const PrivacyPolicy: React.FC = () => {
 
         <footer className="main-footer">
           <p>
-            &copy; {new Date().getFullYear()} Yashin Pavlo. {t('All rights reserved')}
+            &copy; {new Date().getFullYear()} {t('Author')}. {t('All rights reserved')}
           </p>
         </footer>
       </div>
