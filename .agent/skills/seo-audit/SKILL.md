@@ -18,8 +18,9 @@ description: Checks the website for SEO best practices, including meta tags, can
    - Переконатися, що кожна мовна версія сторінки має свій `<link rel="canonical">`.
 3. **Технічні файли**:
    - Перевірити актуальність `public/sitemap.xml` та `public/robots.txt`.
+   - `sitemap.xml` наразі містить лише один `<url>` для головної сторінки з hreflang-альтернативами; звір цей список languages зі `src/i18n.ts` (`supportedLngs`) — там немає `ru`, тож hreflang на `ru` вказує на мову, якої сайт не обслуговує. Також перевір, чи варто додати записи для сторінок `/privacy-policy` кожного додатку — зараз їх у sitemap немає.
 4. **Оптимізація Ключових Слів**:
-   - Аналізувати контент у `src/data/apps.ts`.
+   - Аналізувати контент у `src/data/apps/<id>.ts` (дані кожного додатку лежать в окремому файлі; `src/data/apps.ts` лише агрегує імпорти).
    - Додавати релевантні ключові слова в описи (наприклад: "educational apps for kids", "mobile deck assistant", "learning clock app").
 5. **Атрибути зображень**:
    - Перевірити наявність `alt` текстів для всіх зображень додатків.
