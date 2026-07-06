@@ -31,7 +31,7 @@ const PrivacyPolicy: React.FC = () => {
       const targetLang = supportedLangs.includes(detectLang) ? detectLang : 'en';
       navigate(`/${targetLang}/privacy-policy${appId ? `?appId=${appId}` : ''}`, { replace: true });
     }
-  }, [lang, i18n, navigate, appId]);
+  }, [lang, i18n, navigate, appId, searchParams]);
 
   const app = useMemo(() => apps.find(v => v.id === appId), [appId]);
   const currentLang = i18n.language.split('-')[0];
